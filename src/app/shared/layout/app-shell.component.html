@@ -1,0 +1,16 @@
+<div class="min-h-screen bg-[var(--bg)] text-[var(--text)]">
+  <header
+    class="sticky top-0 z-10 backdrop-blur border-b border-[var(--border)]
+             bg-[var(--bg)]/80">
+    <div class="mx-auto max-w-md px-4 h-14 flex items-center justify-between">
+      <div class="text-sm font-semibold tracking-tight">Banky</div>
+      <ng-content select="[top-actions]"></ng-content>
+    </div>
+  </header>
+
+  <main
+    class="mx-auto max-w-md px-4 py-4
+             animate-in fade-in slide-in-from-bottom-1 duration-200">
+    <router-outlet />
+  </main>
+</div>
