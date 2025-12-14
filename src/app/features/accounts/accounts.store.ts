@@ -19,4 +19,32 @@ export class AccountsStore {
   error = this._error.asReadonly();
 
   totalBalance = computed(() => this.accounts().reduce((acc, curr) => acc + curr.balance, 0));
+
+  refresh(): void {
+    // todo
+  }
+
+  updateAccountBalance(operation: 'withdrawal' | 'deposit', id: number, amount: number): void {
+    setTimeout(() => {
+      const account = this.accounts().find(acc => acc.id === id);
+      if (account) {
+        if (operation === 'withdrawal' && account.balance < amount) {
+          this._error.set('Insufficient funds');
+          return;
+        }
+        if (operation === 'deposit' && amount <= 0) {
+          this._error.set('Invalid deposit amount');
+          return;
+        }
+        if (operation === 'withdrawal') {
+          account.balance -= amount;
+        } else {
+          account.balance += amount;
+        }
+        this._accounts.update(
+          () => [...this.accounts()],
+        );
+      }
+    }, 0);
+  }
 }
