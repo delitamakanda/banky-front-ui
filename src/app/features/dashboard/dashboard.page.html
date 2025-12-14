@@ -3,13 +3,41 @@
     <div>
       <div class="text-xl font-semibold">Overview</div>
     </div>
-    <a routerLink="/settings" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">Settings</a>
+
+    <div class="flex gap-2">
+      <button (click)="refresh()"
+              class="rounded-xl border border-[var(--border)] px-3 py-2 text-sm hover:bg-white/5 transition">
+        Refresh
+      </button>
+      <a routerLink="/settings" class="rounded-xl border border-[var(--border)] px-3 py-2 text-sm hover:bg-white/5 transition">
+        Settings
+      </a>
+    </div>
   </div>
 
-  <app-card [label]="'Total balance'" [value]="'0'"></app-card>
+  <app-card [label]="'Total balance'" [value]="totalBalance() | currency"></app-card>
+
+  @if (loading()) {
+    <div class="mt-4 text-sm text-[var(--muted)]">Loading…</div>
+  }
+
+  @if (error()) {
+    <div class="mt-4 text-sm text-[var(--danger)]">{{ error() }}</div>
+  }
 
   <div class="mt-4 space-y-2">
     <div class="text-sm text-[var(--muted)]">Accounts</div>
+
+    @for (a of accounts(); track a.id) {
+      <a [routerLink]="['/accounts', a.id]"
+         class="block rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 hover:bg-[var(--surface-2)] transition">
+        <div class="flex items-center justify-between">
+          <div class="font-medium">{{ a.name ?? ('Account #' + a.id) }}</div>
+          <div class="font-semibold">{{ a.balance | currency }}</div>
+        </div>
+        <div class="mt-1 text-xs text-[var(--muted)]">Tap to manage</div>
+      </a>
+    }
 
   </div>
 </div>

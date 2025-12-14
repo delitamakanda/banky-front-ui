@@ -9,6 +9,6 @@ import {Component, input} from '@angular/core';
 })
 export class Card {
   label = input<string>('');
-  value = input<string>('');
+  value = input<unknown>(0);
 
 }
