@@ -19,7 +19,7 @@
              class="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] px-4 py-3 outline-none"
              placeholder="http://127.0.0.1:8000" />
 
-      @if(urlForm?.get('url')?.invalid) {
+      @if(urlForm.get('url')?.invalid) {
         <div class="mt-2 text-sm text-[var(--danger)]">
           Please enter a valid URL.
         </div>
