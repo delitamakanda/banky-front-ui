@@ -6,7 +6,7 @@ const TOKEN_KEY = 'banky-token';
   providedIn: 'root'
 })
 export class AuthStore {
-  private _token = signal<string | null>(localStorage.getItem(TOKEN_KEY));
+  private _token = signal<string | null>(null);
 
   token = computed(() => this._token());
   isAuthenticated = computed(() => this.token() !== null);
