@@ -9,7 +9,7 @@
               class="rounded-xl border border-[var(--border)] px-3 py-2 text-sm hover:bg-white/5 transition">
         Refresh
       </button>
-      <a routerLink="/settings" class="rounded-xl border border-[var(--border)] px-3 py-2 text-sm hover:bg-white/5 transition">
+      <a routerLink="/dashboard/settings" class="rounded-xl border border-[var(--border)] px-3 py-2 text-sm hover:bg-white/5 transition">
         Settings
       </a>
     </div>
@@ -29,7 +29,7 @@
     <div class="text-sm text-[var(--muted)]">Accounts</div>
 
     @for (a of accounts(); track a.id) {
-      <a [routerLink]="['/accounts', a.id]"
+      <a [routerLink]="['/dashboard/accounts', a.id]"
          class="block rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 hover:bg-[var(--surface-2)] transition">
         <div class="flex items-center justify-between">
           <div class="font-medium">{{ a.name ?? ('Account #' + a.id) }}</div>

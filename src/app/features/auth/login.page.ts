@@ -28,7 +28,15 @@ export class LoginPage {
     this.loading.set(true);
     this.error.set(null);
 
-    // todo: replace with actual login logic
+    // todo: replace with actual login service
+    // Simulate network delay
+    setTimeout(() => {
+      this.loading.set(false);
+      if (this.loginForm.valid) {
+        this.router.navigate(['/dashboard']);
+        this.auth.login('dummy-token'); // Placeholder for actual login
+      }
+    }, 1000);
   }
 
 }

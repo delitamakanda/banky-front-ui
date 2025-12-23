@@ -22,6 +22,12 @@ export class ApiService {
     return this.http.post(this.url(path), data);
   }
 
+  postFile(path: string, file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post(this.url(path), formData);
+  }
+
   put(path: string, data: any): Observable<any> {
     return this.http.put(this.url(path), data);
   }

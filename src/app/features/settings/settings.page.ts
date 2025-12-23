@@ -27,7 +27,7 @@ export class SettingsPage {
   error = signal<string | null>(null);
 
   back(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
   save(): void {
