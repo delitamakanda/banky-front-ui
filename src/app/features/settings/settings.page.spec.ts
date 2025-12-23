@@ -20,4 +20,9 @@ describe('SettingsPage', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display the title "Settings"', () => {
+    const titleElement: HTMLElement = fixture.nativeElement.querySelector('div');
+    expect(titleElement.textContent).toBe('Settings');
+  })
 });
