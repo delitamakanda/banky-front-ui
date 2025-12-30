@@ -4,11 +4,13 @@ import {EnvService} from '../../core/config/env.service';
 import {AuthStore} from '../../core/auth/auth.store';
 import {Router} from '@angular/router';
 import {ThemeService, ThemeMode} from '../../core/theme/theme-service';
+import {ThemePreviewCard} from '../../shared/ui/theme-preview-card/theme-preview-card';
 
 @Component({
   selector: 'app-settings.page',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ThemePreviewCard,
   ],
   templateUrl: './settings.page.html',
   styleUrl: './settings.page.css',
