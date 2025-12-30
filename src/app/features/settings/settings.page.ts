@@ -3,6 +3,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {EnvService} from '../../core/config/env.service';
 import {AuthStore} from '../../core/auth/auth.store';
 import {Router} from '@angular/router';
+import {ThemeService, ThemeMode} from '../../core/theme/theme-service';
 
 @Component({
   selector: 'app-settings.page',
@@ -17,6 +18,8 @@ export class SettingsPage {
   private auth = inject(AuthStore);
   private env = inject(EnvService);
   private router = inject(Router);
+  private theme = inject(ThemeService);
+  themeMode = this.theme.mode;
 
   urlForm = new FormGroup({
     url: new FormControl('', [Validators.required, Validators.pattern('https?://.*')])
@@ -43,6 +46,10 @@ export class SettingsPage {
   logout(): void {
     this.auth.logout();
     this.router.navigate(['/login']);
+  }
+
+  setTheme(mode: ThemeMode): void {
+    this.theme.setMode(mode);
   }
 
 }

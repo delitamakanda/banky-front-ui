@@ -9,5 +9,18 @@
 </head>
 <body>
   <app-root></app-root>
+
+<script>
+  (function () {
+    const mode = localStorage.getItem('theme-mode') || 'system';
+    const root = document.documentElement;
+    if (mode === 'system') {
+      const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', isDarkMode? 'dark' : 'light');
+    } else {
+      root.setAttribute('data-theme', mode);
+    }
+  })();
+</script>
 </body>
 </html>

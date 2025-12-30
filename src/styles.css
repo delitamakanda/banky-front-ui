@@ -12,6 +12,24 @@
   --ok: #22c55e;
 }
 
+html[data-theme="light"] {
+  --bg: #f7f7f9;
+  --surface: #ffffff;
+  --surface-2: #f0f0f4;
+  --border: rgba(0,0,0,.08);
+  --text: rgba(0,0,0,.92);
+  --muted: rgba(0,0,0,.62);
+}
+
+html[data-theme="dark"] {
+  --bg: #0b0b0d;
+  --surface: #101013;
+  --surface-2: #15151a;
+  --border: rgba(255,255,255,.08);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.62);
+}
+
 
 html,
 body {
